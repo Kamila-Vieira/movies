@@ -5,9 +5,9 @@ export default styled.div<{
   color?: string;
 }>`
   animation: loading 1s infinite;
-  border: 6px solid #ccc;
+  border: 6px solid ${({ theme }) => theme.gray200};
   border-radius: 50%;
-  border-top-color: ${({ color }) => (color ? color : "#ff0000")};
+  border-top-color: ${({ color, theme }) => (color ? color : theme.primary)};
   height: ${({ size }) => (size ? size : "20px")};
   width: ${({ size }) => (size ? size : "20px")};
   display: block;

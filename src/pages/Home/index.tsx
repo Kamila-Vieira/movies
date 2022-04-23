@@ -1,5 +1,5 @@
 import Movies from "../Movies";
-import Header from "../../styles/Header";
+import Header from "../../components/styles/Header";
 import { Link } from "react-router-dom";
 
 const Home = () => {
