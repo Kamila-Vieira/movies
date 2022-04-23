@@ -9,8 +9,8 @@ const MainTheme: DefaultTheme = {
   title: "#00DCDD",
   text: "#616161",
   textMuted: "#9F9F9F",
-  titleFont: "'Abel', sans-serif",
-  mainFont: "'Lato', sans-serif",
+  primaryFont: "'Abel', sans-serif",
+  secondaryFont: "'Lato', sans-serif",
 };
 
 export default MainTheme;

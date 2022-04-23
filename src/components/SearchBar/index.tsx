@@ -1,28 +1,49 @@
-import { useState, FormEvent, useEffect } from "react";
+import { FormEvent } from "react";
 import { Search } from "./styles";
-import { SEARCH_MIN_LENGTH } from "../../mocks/defaults";
-import normalizeString from "../../utils/Helpers";
+import { getDateYear, normalizeString } from "../../utils/Helpers";
+import { useMoviesContext } from "../../context/MoviesContext";
+import { FAKE_LOADING_TIMEOUT } from "../../mocks/defaults";
 
 const SearchBar = () => {
-  const [term, setTerm] = useState<string>("");
+  const { state, setState } = useMoviesContext();
+  const { movies, genres } = state;
 
   const handlerInput = (event: FormEvent<HTMLInputElement>) => {
-    setTerm(event.currentTarget.value);
-  };
+    setState({
+      ...state,
+      searchLoading: true,
+    });
+    const termNormalized = normalizeString(event.currentTarget.value);
+    const searchResult = [...movies].filter((movie) => {
+      const { title, genre_ids, release_date } = movie;
+      const movieGenres = genres.filter(({ id }) => genre_ids.includes(id));
+      const movieYear = getDateYear(release_date);
+      const normalizedTitle = normalizeString(title);
 
-  useEffect(() => {
-    const termNormalized = normalizeString(term);
-    const isValidTerm =
-      Boolean(termNormalized) && termNormalized.length >= SEARCH_MIN_LENGTH;
-    if (isValidTerm) console.log(termNormalized);
-  }, [term]);
+      if (movieYear.includes(termNormalized)) return true;
+      if (normalizedTitle.includes(termNormalized)) return true;
+      const someGender = movieGenres.some(({ name }) => {
+        const normalizedName = normalizeString(name);
+        return normalizedName.includes(termNormalized);
+      });
+
+      return someGender;
+    });
+    setTimeout(() => {
+      setState({
+        ...state,
+        searchResult,
+        searchLoading: false,
+      });
+    }, FAKE_LOADING_TIMEOUT);
+  };
 
   return (
     <Search>
       <input
         className="input"
         type="text"
-        onChange={handlerInput}
+        onInput={handlerInput}
         placeholder="Busque um filme por nome, ano ou gênero..."
       />
     </Search>

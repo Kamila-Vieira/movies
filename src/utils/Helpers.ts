@@ -12,8 +12,24 @@ const removeAccents = (string: string) => {
     .replace(new RegExp("[Ç]", "gi"), "c");
 };
 
-const normalizeString = (string: string) => {
+export const normalizeString = (string: string) => {
   return removeSpecialCharacters(removeAccents(string));
 };
 
-export default normalizeString;
+export const formatDate = (date: string) => {
+  const newDate = new Date(date);
+  const day = newDate.getDate().toString().padStart(2, "0");
+  const mounth = (newDate.getMonth() + 1).toString().padStart(2, "0");
+  const year = newDate.getFullYear();
+  return `${day}/${mounth}/${year}`;
+};
+
+export const getDateYear = (date: string) => {
+  const newDate = new Date(date);
+  const year = newDate.getFullYear();
+  return String(year);
+};
+
+export const formatePercentage = (floatNumber: number) => {
+  return `${Math.trunc(floatNumber * 10)}%`;
+};

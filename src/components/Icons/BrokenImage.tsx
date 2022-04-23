@@ -1,4 +1,4 @@
-import IconContainer from "../styles/IconContainer";
+import IconContainer from "./styles";
 
 const BrokenImage = ({
   iconSize = "24px",

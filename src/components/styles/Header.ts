@@ -5,9 +5,8 @@ export default styled.header`
   background-color: ${({ theme }) => theme.primary};
 
   .title {
-    line-height: 30px;
-    font-size: 30px;
-    font-family: ${({ theme }) => theme.titleFont};
+    font-size: 35px;
+    line-height: 35px;
     color: ${({ theme }) => theme.title};
     font-weight: 400;
     text-align: center;

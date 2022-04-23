@@ -10,7 +10,7 @@ declare module "styled-components" {
     title: string;
     text: string;
     textMuted: string;
-    titleFont: string;
-    mainFont: string;
+    primaryFont: string;
+    secondaryFont: string;
   }
 }

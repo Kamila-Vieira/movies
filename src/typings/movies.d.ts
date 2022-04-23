@@ -79,4 +79,4 @@ type MoviePage = {
   vote_count: number;
 };
 
-export { Movies, MovieItem, MoviePage };
+export { Movies, MovieItem, MoviePage, Gender };

@@ -12,7 +12,7 @@ const Search = styled.div`
     border: none;
     padding: 0 30px;
     background-color: ${({ theme }) => theme.gray300};
-    font-family: ${({ theme }) => theme.mainFont};
+    font-family: ${({ theme }) => theme.primaryFont};
     font-size: 16px;
     color: ${({ theme }) => theme.primary};
 

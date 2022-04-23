@@ -1,10 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import { ContextProps, ProviderProps, StateProps } from "../typings/context";
 import movies from "../mocks/movies.json";
+import genres from "../mocks/genres.json";
 
 const DEFAULT_PROPS: StateProps = {
   movies: movies.results,
-  searchResult: [],
+  searchResult: movies.results,
+  genres: genres.genres,
+  searchLoading: false,
+  isMobile: window.innerWidth <= 638,
 };
 
 const CONTEXT_PROPS: ContextProps = {
