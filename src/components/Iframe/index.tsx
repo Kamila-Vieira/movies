@@ -1,14 +1,24 @@
-const Iframe = ({ iframeSource }: { iframeSource: string }) => {
+import IframeContent from "./styles";
+
+const Iframe = ({
+  iframeSource,
+  title,
+}: {
+  iframeSource: string;
+  title: string;
+}) => {
   return (
     // eslint-disable-next-line jsx-a11y/iframe-has-title
-    <iframe
+    <IframeContent
+      className="movie-video"
+      title={title}
       src={iframeSource}
-      allow="autoplay; encrypted-media"
       frameBorder="0"
       height="529px"
-      width="100%"
-      allowFullScreen={true}
-    ></iframe>
+      width="1024px"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></IframeContent>
   );
 };
 

@@ -179,7 +179,7 @@ const Movie = () => {
           />
         </Bottom>
       </Main>
-      {iframeSource && <Iframe iframeSource={iframeSource} />}
+      {iframeSource && <Iframe title={title} iframeSource={iframeSource} />}
     </Container>
   );
 };
