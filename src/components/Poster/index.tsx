@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import PosterContainer from "./styles";
-import BrokenImage from "../Icons/BrokenImage";
+import BrokenImage from "../BrokenImage";
 
 type Props = {
   src: string;
@@ -20,9 +20,9 @@ const Poster = ({ src, title, width, height }: Props) => {
   }, [src]);
 
   return (
-    <PosterContainer width={width} height={height}>
+    <PosterContainer width={width} height={height} className="poster">
       {isValidImage && src ? (
-        <img src={src} alt={title} className="poster" />
+        <img src={src} alt={title} className="poster-image" />
       ) : (
         <BrokenImage iconSize="70px" width={width} height={height} />
       )}

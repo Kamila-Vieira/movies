@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { useMoviesContext } from "../../context/MoviesContext";
-import Spinner from "../styles/Spinner";
+import Spinner from "../../styles/Spinner";
 import { ListContainer, List, Empty } from "./styles";
 const ListItem = lazy(() => import("../ListItem"));
 

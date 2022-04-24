@@ -1,15 +1,17 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { ContextProps, ProviderProps, StateProps } from "../typings/context";
-import movies from "../mocks/movies.json";
-import genres from "../mocks/genres.json";
-import { stat } from "fs";
+import search from "../services/search";
+import getGenres from "../services/genres";
+import { FAKE_LOADING_TIMEOUT } from "../mocks/defaults";
 
 const DEFAULT_PROPS: StateProps = {
-  movies: movies.results,
-  searchResult: movies.results,
-  genres: genres.genres,
-  searchLoading: false,
-  isMobile: window.innerWidth <= 638,
+  movies: [],
+  searchResult: [],
+  genres: [],
+  searchLoading: true,
+  query: "",
+  page: 1,
+  moviePageLoading: false,
 };
 
 const CONTEXT_PROPS: ContextProps = {
@@ -24,8 +26,25 @@ const useMoviesContext = () => useContext(MoviesContext);
 const MoviesContextProvider = ({ children }: ProviderProps) => {
   const [state, setState] = useState(DEFAULT_PROPS);
 
-  window.onresize = () =>
-    setState({ ...state, isMobile: window.innerWidth <= 638 });
+  useEffect(() => {
+    (async () => {
+      const { page } = state;
+      const searchResults = await search({ initial: true, page });
+      const genres = await getGenres();
+      if (searchResults) {
+        const { results } = searchResults;
+        setTimeout(() => {
+          setState({
+            ...state,
+            searchResult: results,
+            movies: results,
+            genres,
+            searchLoading: false,
+          });
+        }, FAKE_LOADING_TIMEOUT);
+      }
+    })();
+  }, []);
 
   return (
     <MoviesContext.Provider value={{ state, setState }}>

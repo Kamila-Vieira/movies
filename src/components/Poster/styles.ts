@@ -8,20 +8,21 @@ export default styled.div<{ width: string; height: string }>`
   background-color: ${({ theme }) => theme.white};
   @media (max-width: 638px) {
     max-width: initial;
-    height: 300px;
+    max-height: initial;
+    min-height: 300px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .poster {
+  .poster-image {
     margin: auto;
     display: block;
     width: 100%;
     height: auto;
-    @media (max-width: 638px) {
+    /* @media (max-width: 638px) {
       width: auto;
       height: 100%;
-    }
+    } */
   }
 `;

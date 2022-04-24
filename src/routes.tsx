@@ -1,17 +1,22 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes as BrowserRoutes } from "react-router-dom";
-import Spinner from "./components/styles/Spinner";
+import { Link, Route, Routes as BrowserRoutes } from "react-router-dom";
+import Header from "./styles/Header";
+import Spinner from "./styles/Spinner";
 
-const Home = lazy(() => import("./pages/Home"));
+const Movies = lazy(() => import("./pages/Movies"));
 const Movie = lazy(() => import("./pages/Movie"));
 
 function Routes() {
   return (
     <Suspense fallback={<Spinner />}>
+      <Header>
+        <Link to="/">
+          <h1 className="title">Movies</h1>
+        </Link>
+      </Header>
       <BrowserRoutes>
-        <Route path="/" element={<Home />}>
-          <Route path="/movie/:name" element={<Movie />} />
-        </Route>
+        <Route path="/" element={<Movies />} />
+        <Route path="/movie/:id/:title" element={<Movie />} />
       </BrowserRoutes>
     </Suspense>
   );

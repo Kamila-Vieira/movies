@@ -6,13 +6,15 @@ const Card = styled.li`
   background-color: ${({ theme }) => theme.gray300};
 
   @media (max-width: 638px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
 const CardInfo = styled.div`
   width: 100%;
-
+  @media (max-width: 638px) {
+    padding-bottom: 20px;
+  }
   .card-top {
     position: relative;
     display: flex;
@@ -30,6 +32,10 @@ const CardInfo = styled.div`
       font-size: 35px;
       line-height: 37px;
       font-weight: 300;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       @media (max-width: 638px) {
         font-size: 25px;
         line-height: 28px;
@@ -48,12 +54,16 @@ const CardInfo = styled.div`
     }
   }
   .date {
-    padding: 7px 0 0 98px;
+    padding: 7px 0 20px 98px;
     font-size: 20px;
     color: ${({ theme }) => theme.textMuted};
+    @media (max-width: 638px) {
+      padding: 5px 0 20px 78px;
+      font-size: 16px;
+    }
   }
   .text {
-    margin: 35px 22px 24px;
+    margin: 0 22px 20px;
     font-family: ${({ theme }) => theme.secondaryFont};
     font-size: 15px;
     line-height: 18px;
@@ -62,6 +72,9 @@ const CardInfo = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
+  }
+  .genres {
+    padding-left: 22px;
   }
 `;
 

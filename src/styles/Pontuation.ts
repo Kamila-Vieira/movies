@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default styled.div<{ size: string }>`
+export default styled.div<{ size: string; font: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   background-color: ${({ theme }) => theme.primary};
@@ -10,7 +10,8 @@ export default styled.div<{ size: string }>`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.secondary};
-  font-size: 25px;
+  font-size: ${({ font }) => font};
+  position: relative;
 
   &::after {
     content: "";

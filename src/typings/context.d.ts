@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import { MovieItem, Gender } from "./movies";
+import { MovieItem, Genre } from "./movies";
 
 type ProviderProps = {
   children: ReactNode;
@@ -8,9 +8,11 @@ type ProviderProps = {
 type StateProps = {
   movies: MovieItem[];
   searchResult: MovieItem[];
-  genres: Gender[];
+  genres: Genre[];
   searchLoading: boolean;
-  isMobile: boolean;
+  query: string;
+  page: number;
+  moviePageLoading: boolean;
 };
 
 type ContextProps = {

@@ -22,9 +22,27 @@ type MovieItem = {
   vote_average: number;
 };
 
-type Gender = {
+export type Genre = {
   id: number;
   name: string;
+};
+
+export type Videos = {
+  id: number;
+  results: Video[];
+};
+
+export type Video = {
+  iso_639_1: string;
+  iso_3166_1: string;
+  name: string;
+  key: string;
+  site: string;
+  size: number;
+  type: number;
+  official: boolean;
+  published_at: string;
+  id: string;
 };
 
 type ProductionCompany = {
@@ -49,7 +67,7 @@ type MoviePage = {
   backdrop_path: string | null;
   belongs_to_collection: null | {};
   budget: number;
-  genres: Gender[];
+  genres: Genre[];
   homepage: string | null;
   id: number;
   imdb_id: string | null;
@@ -79,4 +97,4 @@ type MoviePage = {
   vote_count: number;
 };
 
-export { Movies, MovieItem, MoviePage, Gender };
+export { Movies, MovieItem, MoviePage, Genre };

@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export default styled.div<{ width: string; height: string; color?: string }>`
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  min-width: ${({ width }) => width};
+  min-height: ${({ height }) => height};
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
