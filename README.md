@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+## Listagem de filmes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto consiste numa aplicação que traz a listagem de filmes da [API do The Movie DB](/https://www.themoviedb.org/documentation/api), com busca e paginação além de renderizar a página de cada filme.
 
-## Available Scripts
+**Conheça mais sobre a The Movie DB clicando no logo abaixo:**
 
-In the project directory, you can run:
+[<img src="/images/tmdb_logo.svg"/>](/https://www.themoviedb.org/)
 
-### `npm start`
+### Como testar a aplicação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**1.** Clone este repositório com o seguinte comando:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`git clone git@github.com:Kamila-Vieira/movies.git`
 
-### `npm test`
+**2.** Instale as dependências do projeto com um dos comandos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm install`
 
-### `npm run build`
+ou
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`yarn`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**3.** Crie o arquivo `.env` na raíz do projeto, copie as informações do arquivo de exemplo `.env.example` e cole no arquivo que você criou.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**4.** Você vai precisar gerar uma Api key, saso não tenha cadastro no site acesse [cadastro TMDB](/https://www.themoviedb.org/signup) para se cadastrar ou acesse [login TMDB](/https://www.themoviedb.org/login) para fazer login, depois acesse [Introdução API TMDB](/https://developers.themoviedb.org/3/getting-started/introduction) e siga o passo a passo para a gerar uma nova Api key.
 
-### `npm run eject`
+**5.** Após gerar sua Api key, copie e cole no arquivo `.env` no local indicado, no fim seu conteúdo deve ser o seguinte:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`REACT_APP_API_KEY=key`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Onde `key` deve ser a Api key gerada.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**6.** Rode a aplicação com um dos comandos:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`npm start`
 
-## Learn More
+ou
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+`yarn start`
