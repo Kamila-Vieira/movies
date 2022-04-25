@@ -58,6 +58,7 @@ const Movie = () => {
         }, FAKE_LOADING_TIMEOUT);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -74,7 +75,6 @@ const Movie = () => {
       (async () => {
         if (id) {
           const videosResults = await videos(id);
-          console.log(videosResults);
           if (videosResults?.results) {
             for (let index = 0; index < videosResults.results.length; index++) {
               const videoData = videosResults.results[index];

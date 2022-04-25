@@ -73,3 +73,19 @@ export const getDateYear = (date: string) => {
 export const formatPercentage = (floatNumber: number) => {
   return `${Math.trunc(floatNumber * 10)}%`;
 };
+
+export const separateArray = (itens: any[], max: number) => {
+  return itens.reduce((accumulator, item, indice) => {
+    const grupo = Math.floor(indice / max);
+    accumulator[grupo] = [...(accumulator[grupo] || []), item];
+    return accumulator;
+  }, []);
+};
+
+export const sequentialArray = (limit = 5) => {
+  const array = [];
+  for (let index = 1; index <= limit; index++) {
+    array.push(index);
+  }
+  return array;
+};

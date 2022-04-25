@@ -1,15 +1,5 @@
 {
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin",
-        "tags": [
-          "styled",
-          "css",
-          "sty"
-        ]
-      }
-    ],
     "target": "es5",
     "lib": [
       "dom",
@@ -33,4 +23,5 @@
   "include": [
     "src"
   ]
+  
 }

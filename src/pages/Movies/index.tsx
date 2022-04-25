@@ -1,6 +1,6 @@
-import MoviesList from "../../components/MoviesList";
-import SearchBar from "../../components/SearchBar";
 import Container from "../../styles/Container";
+import SearchBar from "../../components/SearchBar";
+import MoviesList from "../../components/MoviesList";
 
 const Movies = () => {
   return (

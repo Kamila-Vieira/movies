@@ -12,7 +12,13 @@ type StateProps = {
   searchLoading: boolean;
   query: string;
   page: number;
+  totalPages: number;
   moviePageLoading: boolean;
+  activePage: number;
+  pages: MovieItem[][];
+  updatedPages: number[];
+  limitPagination: number;
+  initial: boolean;
 };
 
 type ContextProps = {

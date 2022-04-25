@@ -12,8 +12,8 @@ const Card = styled.li`
 
 const CardInfo = styled.div`
   width: 100%;
+  padding-bottom: 20px;
   @media (max-width: 638px) {
-    padding-bottom: 20px;
   }
   .card-top {
     position: relative;
